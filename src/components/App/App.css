@@ -91,3 +91,15 @@ font-size: 25px
   box-shadow: 0 9px #999;
   margin-left: 10px;
 }
+
+table{
+  width: 50%;
+  border-style: solid;
+  margin-left: 350px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+

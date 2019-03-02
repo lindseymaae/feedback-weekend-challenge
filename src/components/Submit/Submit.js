@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Redirect } from 'react-router';
+import { connect } from 'react-redux';
 
-class Home extends Component {
+class Submit extends Component {
     state = {
             action: {
                 feeling: 0,
@@ -38,6 +38,9 @@ class Home extends Component {
 
 
     render() {
+
+        console.log(this.props.reduxStore.inputReducer.support);
+        
         if (this.state.redirect) {
             return <Redirect push to='/' />
         }
@@ -48,26 +51,28 @@ class Home extends Component {
                 <div>
                     <p className="pageHeading">Please Review your Responses</p>
                 </div>
+                <div id="tableDiv">
                 <table>
                     <tbody>
                         <tr>
-                            Feeling
+                            <td>Feeling</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            Supported
+                            <td>Supported</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Understanding</td>
                             <td>0</td>
                         </tr>
                         <tr>
-                            Understanding
-                            <td>0</td>
-                        </tr>
-                        <tr>
-                            Comments
+                            <td>Comments</td>
                             <td>none</td>
                         </tr>
                     </tbody>
                 </table>
+                </div>
                 <div>
                     <button onClick={this.handleClick} className="submitButton">Submit</button>
                 </div>
@@ -77,4 +82,7 @@ class Home extends Component {
     }
 }
 
-export default Home;
+const mapReduxStoreToProps = (reduxStore) => ({
+    reduxStore: reduxStore
+})
+export default connect(mapReduxStoreToProps)(Submit);
