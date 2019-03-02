@@ -5,7 +5,7 @@ class Supported extends Component {
     render() {
         return (
             <div>
-                <p>How well are you being supported?</p>
+                <p class="pageHeading">How well are you being supported?</p>
                 <input placeholder="Supported" type="number" />
                 <button>Next</button>
             </div>

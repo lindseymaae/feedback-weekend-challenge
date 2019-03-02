@@ -5,7 +5,7 @@ class Understanding extends Component {
     render() {
         return (
             <div>
-                <p>How well are you understanding the content?</p>
+                <p class="pageHeading">How well are you understanding the content?</p>
                 <input placeholder="Understanding" type="number" />
                 <button>Next</button>
             </div>

@@ -4,11 +4,11 @@ import axios from 'axios';
 class Feeling extends Component {
     render() {
         return (
-<div>
-    <p>How are you feeling today?</p>
-    <input placeholder="Feeling" type="number" />
-    <button>Next</button>
-</div>
+            <div>
+                <p class="pageHeading">How are you feeling today?</p>
+                <input placeholder="Feeling" type="number" />
+                <button>Next</button>
+            </div>
         )
     }
 }

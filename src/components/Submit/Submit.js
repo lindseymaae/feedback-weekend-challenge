@@ -4,10 +4,14 @@ import axios from 'axios';
 class Home extends Component {
     render() {
         return (
+            <>
             <div>
-                <p>Please Review your Responses</p>
-                <button>Submit</button>
+                    <h1 class="pageHeading">Please Review your Responses</h1>
+</div>
+<div>
+                <button className="submitButton">Submit</button>
             </div>
+            </>
         )
     }
 }

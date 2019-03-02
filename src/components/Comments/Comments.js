@@ -6,11 +6,11 @@ class Comments extends Component {
         return (
             <>
                 <div>
-                    <p>Any comments you want to leave?</p>
+                    <p class="pageHeading">Any comments you want to leave?</p>
                     <input className="comments" placeholder="Comments" type="text" />
                 </div>
                 <div>
-                    <button>Next: Submit</button>
+                    <button className="nextButton">Next: Submit</button>
                 </div>
             </>
         )

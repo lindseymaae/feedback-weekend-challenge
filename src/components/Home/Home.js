@@ -5,8 +5,8 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <p>Please Enter Your Feedback on the Following Pages</p>
-                <button>Next: How are you feeling?</button>
+                <h1 class="pageHeading">Please Enter Your Feedback on the Following Pages</h1>
+                <button className="nextButton">Next: How are you feeling?</button>
             </div>
         )
     }
