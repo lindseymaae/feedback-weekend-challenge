@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 
 class Submit extends Component {
     state = {
-            action: {
-                feeling: 0,
-                supported: 0,
-                comments: '',
-            },
+        action: {
+            feeling: 0,
+            supported: 0,
+            comments: '',
+        },
         redirect: false
     }
 
@@ -16,7 +16,7 @@ class Submit extends Component {
         this.getInputs();
     }
 
-    getInputs = () =>{
+    getInputs = () => {
         this.setState({
             ...this.state,
             actions: {
@@ -42,7 +42,7 @@ class Submit extends Component {
     render() {
 
         console.log(this.props.reduxStore.inputReducer);
-        
+
         if (this.state.redirect) {
             return <Redirect push to='/' />
         }
@@ -54,26 +54,27 @@ class Submit extends Component {
                     <p className="pageHeading">Please Review your Responses</p>
                 </div>
                 <div id="tableDiv">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Feeling</td>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Feeling</td>
                                 <td>{this.props.reduxStore.feelingReducer}</td>
-                        </tr>
-                        <tr>
-                            <td>Supported</td>
-                                <td>{this.props.reduxStore.inputReducer}</td>
-                        </tr>
-                        <tr>
-                            <td>Understanding</td>
+                            </tr>
+                            <tr>
+                                <td>Understanding</td>
                                 <td>{this.props.reduxStore.understandingReducer}</td>
-                        </tr>
-                        <tr>
-                            <td>Comments</td>
+                            </tr>
+
+                            <tr>
+                                <td>Support</td>
+                                <td>{this.props.reduxStore.inputReducer}</td>
+                            </tr>
+                            <tr>
+                                <td>Comments</td>
                                 <td>{this.props.reduxStore.commentReducer}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div>
                     <button onClick={this.handleClick} className="submitButton">Submit</button>
