@@ -13,6 +13,14 @@ import Submit from "../Submit/Submit";
 
 
 class App extends Component {
+
+  state = {
+    support: 0,
+    feeling: 0,
+    understanding: 0,
+    comments: '',
+  }
+
   render() {
     return (
       <div className="App">

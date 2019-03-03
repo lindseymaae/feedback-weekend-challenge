@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
-
+import Submit from '../Submit/Submit';
 class Supported extends Component {
     state = {
         redirect: false,
@@ -15,7 +15,7 @@ class Supported extends Component {
             ...this.state,
             redirect: true,
         })
-    this.props.dispatch({ type: "SET_RESPONSE", payload: this.state.support })
+    this.props.dispatch({ type: "SET_SUPPORT_RESPONSE", payload: this.state.support })
 
     }
     handleChange = (event) => {
@@ -26,8 +26,8 @@ class Supported extends Component {
 
     }
     render() {
-        console.log(this.props.reduxStore.inputReducer.support);
-        
+        console.log(this.props.reduxStore);
+                
         if (this.state.redirect) {
             return <Redirect push to='/comments' />
         }
@@ -43,6 +43,7 @@ class Supported extends Component {
                     onChange={this.handleChange}
                 />
                 <button className="nextButton" onClick={this.handleClick}>Next</button>
+                <Submit />
             </div>
         )
     }

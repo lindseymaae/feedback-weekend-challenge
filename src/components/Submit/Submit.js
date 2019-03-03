@@ -20,7 +20,10 @@ class Submit extends Component {
         this.setState({
             ...this.state,
             actions: {
-                feeling: this.props.inputReducer
+                feeling: this.props.feeling,
+                supported: this.props.support,
+                comments: this.props.comments
+
             }
         })
     }
@@ -36,10 +39,9 @@ class Submit extends Component {
         })
     }
 
-
     render() {
 
-        console.log(this.props.reduxStore.inputReducer.support);
+        console.log(this.props.reduxStore.inputReducer);
         
         if (this.state.redirect) {
             return <Redirect push to='/' />
@@ -56,11 +58,11 @@ class Submit extends Component {
                     <tbody>
                         <tr>
                             <td>Feeling</td>
-                            <td>0</td>
+                                <td>{this.props.reduxStore.feelingReducer}</td>
                         </tr>
                         <tr>
                             <td>Supported</td>
-                            <td></td>
+                                <td>{this.props.reduxStore.inputReducer}</td>
                         </tr>
                         <tr>
                             <td>Understanding</td>
