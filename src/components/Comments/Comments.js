@@ -44,7 +44,7 @@ class Comments extends Component {
                 <div>
                     <button onClick={this.handleClick} className="nextButton">Next: Submit</button>
                 </div>
-                <Submit />
+                <Submit hideButton/>
             </>
         )
     }

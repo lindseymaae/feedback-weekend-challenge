@@ -7,12 +7,12 @@ class Home extends Component {
 
     handleClick = () => {
         console.log('button clicked');
-        
         this.setState({
             ...this.state,
             redirect: true,
         })
     }
+
     render() {
         if (this.state.redirect) {
             return <Redirect push to='/feeling' />

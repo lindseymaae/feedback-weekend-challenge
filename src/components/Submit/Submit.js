@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 class Submit extends Component {
+
     state = {
         action: {
             feeling: 0,
@@ -37,52 +39,63 @@ class Submit extends Component {
             ...this.state,
             redirect: true,
         })
+        
+        axios({
+            url: '/',
+            method: 'POST',
+            data: this.state.action,
+        }).then((response) => {
+            console.log('DB response:', response);
+            this.props.history.push('/Success');
+        });
+    };
+
+
+render() {
+
+    console.log(this.props.reduxStore.inputReducer);
+
+    if (this.state.redirect) {
+        return <Redirect push to='/' />
     }
+    console.log(this.props.hideButton)
+    return (
+        <>
+            <div>
+                <p className="pageHeading">Please Review your Responses</p>
+            </div>
+            <div id="tableDiv">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Feeling</td>
+                            <td>{this.props.reduxStore.feelingReducer}</td>
+                        </tr>
+                        <tr>
+                            <td>Understanding</td>
+                            <td>{this.props.reduxStore.understandingReducer}</td>
+                        </tr>
 
-    render() {
-
-        console.log(this.props.reduxStore.inputReducer);
-
-        if (this.state.redirect) {
-            return <Redirect push to='/' />
-        }
-
-
-        return (
-            <>
-                <div>
-                    <p className="pageHeading">Please Review your Responses</p>
-                </div>
-                <div id="tableDiv">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Feeling</td>
-                                <td>{this.props.reduxStore.feelingReducer}</td>
-                            </tr>
-                            <tr>
-                                <td>Understanding</td>
-                                <td>{this.props.reduxStore.understandingReducer}</td>
-                            </tr>
-
-                            <tr>
-                                <td>Support</td>
-                                <td>{this.props.reduxStore.inputReducer}</td>
-                            </tr>
-                            <tr>
-                                <td>Comments</td>
-                                <td>{this.props.reduxStore.commentReducer}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div>
+                        <tr>
+                            <td>Support</td>
+                            <td>{this.props.reduxStore.inputReducer}</td>
+                        </tr>
+                        <tr>
+                            <td>Comments</td>
+                            <td>{this.props.reduxStore.commentReducer}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                {!this.props.hideButton &&
                     <button onClick={this.handleClick} className="submitButton">Submit</button>
-                </div>
+                }
+            </div>
 
-            </>
-        )
-    }
+        </>
+    )
+}
 }
 
 const mapReduxStoreToProps = (reduxStore) => ({

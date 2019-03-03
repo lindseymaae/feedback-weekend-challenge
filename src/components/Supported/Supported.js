@@ -44,7 +44,7 @@ class Supported extends Component {
                     onChange={this.handleChange}
                 />
                 <button className="nextButton" onClick={this.handleClick}>Next</button>
-                <Submit />
+                <Submit hideButton />
             </div>
         )
     }

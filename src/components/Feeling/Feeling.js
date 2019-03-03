@@ -41,7 +41,7 @@ class Feeling extends Component {
                 />
                 <button className="nextButton" 
                 onClick={this.handleClick}>Next</button>
-                <Submit />
+                <Submit hideButton/>
             </div>
         )
     }
