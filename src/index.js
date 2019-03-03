@@ -22,18 +22,26 @@ const feelingReducer = (state = [], action) =>{
     }
     return state;
 }
-const understandingReducer = () =>{
+const understandingReducer = (state = [], action) =>{
     if (action.type === 'SET_UNDERSTANDING_RESPONSE') {
         return action.payload;
     }
     return state;
 
 }
+
+const commentReducer =(state = [], action) =>{
+    if (action.typer === 'SET_COMMENT_RESPONSE'){
+        return action.payload;
+    }
+    return state;
+}
     const storeInstance = createStore(
     combineReducers({
     inputReducer,
     feelingReducer,
     understandingReducer,
+    commentReducer,
     }),
 );
 

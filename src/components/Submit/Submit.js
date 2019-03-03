@@ -66,7 +66,7 @@ class Submit extends Component {
                         </tr>
                         <tr>
                             <td>Understanding</td>
-                            <td>0</td>
+                                <td>{this.props.reduxStore.understandingReducer}</td>
                         </tr>
                         <tr>
                             <td>Comments</td>
