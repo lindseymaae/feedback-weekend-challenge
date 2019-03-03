@@ -16,13 +16,13 @@ const inputReducer = (state = [], action) => {
     }
     return state;
 }
-const feelingReducer = (state = [], action) =>{
+const feelingReducer = (state = [], action) => {
     if (action.type === 'SET_FEELING_RESPONSE') {
         return action.payload;
     }
     return state;
 }
-const understandingReducer = (state = [], action) =>{
+const understandingReducer = (state = [], action) => {
     if (action.type === 'SET_UNDERSTANDING_RESPONSE') {
         return action.payload;
     }
@@ -30,18 +30,19 @@ const understandingReducer = (state = [], action) =>{
 
 }
 
-const commentReducer =(state = [], action) =>{
-    if (action.typer === 'SET_COMMENT_RESPONSE'){
+const commentReducer = (state = [], action) => {
+    if (action.type === 'SET_COMMENT_RESPONSE') {
         return action.payload;
     }
     return state;
 }
-    const storeInstance = createStore(
+
+const storeInstance = createStore(
     combineReducers({
-    inputReducer,
-    feelingReducer,
-    understandingReducer,
-    commentReducer,
+        inputReducer,
+        feelingReducer,
+        understandingReducer,
+        commentReducer,
     }),
 );
 

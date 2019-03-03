@@ -70,7 +70,7 @@ class Submit extends Component {
                         </tr>
                         <tr>
                             <td>Comments</td>
-                            <td>none</td>
+                                <td>{this.props.reduxStore.commentReducer}</td>
                         </tr>
                     </tbody>
                 </table>
