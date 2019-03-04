@@ -9,7 +9,20 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-app.post()
+app.post( '/review', (req, res) => {
+    console.log(req.body);
+    
+    pool.query( 'INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES($1, $2, $3, $4);',
+    [req.body.feeling, req.body.understanding, req.body.support, req.body.comments])
+    .then(() =>{
+        res.sendStatus(200)
+    })
+    .catch((error) =>{
+        res.sendStatus(500);
+        console.log('error in post, error:', error);
+        
+    })
+})
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {

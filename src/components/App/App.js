@@ -10,6 +10,7 @@ import Comments from "../Comments/Comments";
 import Supported from "../Supported/Supported";
 import Home from "../Home/Home";
 import Submit from "../Submit/Submit";
+import Success from '../Success/Success';
 
 
 class App extends Component {
@@ -44,6 +45,7 @@ class App extends Component {
           <Route path="/support" component={Supported} />
           <Route path="/comments" component={Comments} />
           <Route path="/submit" component={Submit} />
+          <Route path="/success" component={Success} />
           
             </div>
           </Router>
